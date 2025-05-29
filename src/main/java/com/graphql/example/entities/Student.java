@@ -18,6 +18,7 @@ public class Student {
     private String lastName;
     private Integer age;
 
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = Student.class)
-    private List<Student> studentList;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Course.class)
+    private Course course;
+//    private List<Student> studentList;
 }

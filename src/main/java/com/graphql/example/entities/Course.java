@@ -3,6 +3,8 @@ package com.graphql.example.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "courses")
@@ -15,8 +17,8 @@ public class Course {
     private String category;
     private String teacher;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Course.class)
-    private Course course;
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = Student.class)
+    private List<Student> studentList;
 }
 
 // MUCHOS estudiantes para un curso
