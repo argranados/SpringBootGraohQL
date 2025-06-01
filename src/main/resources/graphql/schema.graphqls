@@ -1,18 +1,32 @@
 type Query {
     findStudentById(studentId: String) :Student,
     findAllStudents : [Student]
+
+    findCourseById(courseId: String): Course
+    findAllCourses: [Course]
 }
 
 type Mutation {
     createStudent(inputStudent: InputStudent) :Student,
     deleteStudentById(studentId: String): String
+
+    createCourse(inputCourse: InputCourse) : Course
+    deleteCourseById(courseId: String) : String
 }
 
 type Student {
     id:  ID,
     name: String,
     lastName: String,
-    age: Int
+    age: Int,
+    course: Course
+}
+
+type Course {
+    id: ID,
+    name: String,
+    category: String,
+    teacher: String
 }
 
 input InputStudent {
@@ -21,5 +35,11 @@ input InputStudent {
     lastName: String,
     age: Int,
     courseId: String
+}
+
+input InputCourse {
+    name: String,
+    category: String,
+    teacher: String
 }
 
