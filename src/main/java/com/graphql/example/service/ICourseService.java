@@ -11,7 +11,7 @@ public interface ICourseService {
 
     List<Course> findAll();
 
-    void createStudent(Course course);
+    void createCourse(Course course);
 
     void deleteById(Long id);
 }

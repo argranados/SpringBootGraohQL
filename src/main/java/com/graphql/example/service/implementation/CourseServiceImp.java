@@ -29,7 +29,7 @@ public class CourseServiceImp implements ICourseService {
 
     @Override
     @Transactional
-    public void createStudent(Course course) {
+    public void createCourse(Course course) {
         cursoDAO.save(course);
 
     }
